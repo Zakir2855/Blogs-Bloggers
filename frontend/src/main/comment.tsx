@@ -44,7 +44,7 @@ export default function Comments({ id }: CommentsProps) {
           console.log(res);
          
           setComment(""); // Clearing input field after successful comment
-      fetchComments(); // Refreshing comments after posting
+      fetchComments(); //this is to Refreh comments after posting
         })
         .catch((err) => console.log(err));
 
@@ -54,7 +54,7 @@ export default function Comments({ id }: CommentsProps) {
     }
   };
 
-  // Fetch comments
+  // Fetching comments from server
   const fetchComments = async () => {
     try {
       const res = await fetch(
@@ -67,11 +67,11 @@ export default function Comments({ id }: CommentsProps) {
       setComments(Array.isArray(data.data) ? data.data : []);
     } catch (error) {
       console.error("Error fetching comments:", error);
-      setComments([]); // Reset to empty if fetch fails
+      setComments([]); 
     }
   };
 
-  // Fetch comments on component mount & when id changes
+  
   useEffect(() => {
     fetchComments();
   }, [id]);

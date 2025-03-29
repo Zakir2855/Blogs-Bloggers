@@ -29,4 +29,4 @@ interface Article {
   comments?: any[]; 
 }
 
-export type ArticlesResponse = Article[]; // checks array of Article objects
+export type ArticlesResponse = Article[]; 

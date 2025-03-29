@@ -61,10 +61,10 @@ export default function DashBoard() {
   function handleLike(id: string) {
     fetch(`http://localhost:3001/api/like/v1/hitLike/${id}`, {
       method: "POST",
-      credentials: "include", // This is to include cookies
+      credentials: "include", // This is to include cookies in our request
     })
       .then((res) => res.json())
-      .then(() => setRender((prev) => !prev)) // re-fetch
+      .then(() => setRender((prev) => !prev)) //to re-render for changes
       .catch((err) => console.error("Error liking post:", err));
   }
 
@@ -115,7 +115,7 @@ export default function DashBoard() {
               Comments
             </button>
 
-            {/* Show Comments Section if selected */}
+            {/* comment sec condition */}
             {commentSec === article._id && (
               <div className="comments_div">
                 <Comments id={article._id} />

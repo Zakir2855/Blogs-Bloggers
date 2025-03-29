@@ -5,7 +5,7 @@ interface BlogData {
   article_title: string;
   article_description: string;
   user: string;
-  article_image: string | null; // Store as Base64
+  article_image: string | null; 
   tags: string;
 }
 
@@ -35,7 +35,7 @@ export default function BlogCreator() {
       reader.onloadend = () => {
         setBlog((prevState) => ({
           ...prevState,
-          article_image: reader.result as string, // Convert to Base64
+          article_image: reader.result as string, // Convert to Base64 from ai
         }));
       };
       reader.readAsDataURL(file);
