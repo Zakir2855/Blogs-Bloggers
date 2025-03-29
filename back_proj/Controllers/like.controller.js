@@ -19,7 +19,7 @@ async function likeHandler(req, resp) {
         return resp.status(200).json({ message: "Like removed" });
       }
   
-      // Like
+      // Like 
       const like = await Like.create({ article: req.params.id, user: user.id });
       article.likes.push(user.id);
       await article.save();

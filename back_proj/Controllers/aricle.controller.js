@@ -75,7 +75,7 @@ async function deletePostById(req, response) {
       return response.status(404).json({ error: "Couldn't find post or user" });
     }
 
-    // Remove the article reference from the user
+    // to remove the article from the user
     user.article.splice(articleIndex, 1);
     await user.save();
 
@@ -84,7 +84,7 @@ async function deletePostById(req, response) {
       console.log("Error in deleting comments of the article");
     });
 
-    // Delete the article 
+    // to felete  the article by id
     const deletedArticle = await Article.findByIdAndDelete(req.params.id);
     if (!deletedArticle) {
       return response.status(405).json({ message: "Can't find post" });

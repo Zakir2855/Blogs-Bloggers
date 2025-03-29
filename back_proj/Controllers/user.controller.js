@@ -56,10 +56,10 @@ async function loginUser(req, resp) {
     console.log("Login success");
     resp
   .status(200)
-  .cookie("newlettertoken", token, {
-    httpOnly: false, // Allow frontend access
-    secure: false, //  Ensure it works on localhost
-    sameSite: "Lax", //  Works well across most browsers
+  .cookie("newlettertoken", token, {//revise about following things
+    httpOnly: false, 
+    secure: false, 
+    sameSite: "Lax", 
   })
   .json({ message: "User logged in successfully", id:user._id });
 
