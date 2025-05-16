@@ -20,7 +20,7 @@ export default function BlogCreator() {
     tags: "",
   });
 
-  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: ChangeEvent<HTMLSelectElement | HTMLTextAreaElement|HTMLInputElement>) {
     const { name, value } = e.target;
     setBlog((prevState) => ({
       ...prevState,
@@ -103,14 +103,16 @@ export default function BlogCreator() {
         />
         <input
         className="article_image" type="file" name="article_image" accept="image/*" onChange={handleFileChange} />
-        <input
-        className="article_tags"
-          type="text"
-          name="tags"
-          value={blog.tags}
-          onChange={handleChange}
-          placeholder="Tags (comma-separated)"
-        />
+        
+        <select className="tag_selector" name="tags" id="" value={blog.tags} onChange={handleChange} required>
+          <option value="" disabled>Select a tag</option>
+          <option value="lifestyle">lifestyle</option>
+          <option value="technology">technology</option>
+          <option value="software">software</option>
+          <option value="political">political</option>
+          <option value="bollywood">bollywood</option>
+          <option value="hollywood">hollywood</option>
+        </select> 
         <button type="submit">Create</button>
       </form>
     </div>

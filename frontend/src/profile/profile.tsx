@@ -35,6 +35,8 @@ export function ProfilePage() {
         <h3>email: {user.email}</h3>
         <h3>Mob: {user.phoneNumber}</h3>
         <h3>CreatedAt: {user.createdAt}</h3>
+        <button onClick={() => navigate("/createBlog")}>Create Blog</button>
+
         <button onClick={handleLogOut}>LogOut</button>
       </div>
     </div>

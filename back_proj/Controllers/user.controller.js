@@ -7,16 +7,19 @@ const { Comment } = require("../Models/commentModels");
 // sign up controller
 async function createUser(req, resp) {
   console.log(req.file, "image avatar");
-  await User.create(req.body)
-    .then((res) => {
-      console.log(res);
-      resp.status(200).json({"message":"User created successfully"});
-    })
-    .catch((err) => {
-      console.log(err);
-      resp.status(500).json({ message: "User creation failed", error: err });
-    });
+  try {
+    const newUser = await User.create(req.body);
+    console.log(newUser);
+    return resp.status(200).json({ message: "User created successfully" });
+  } catch (err) {
+    console.log(err);
+    if (err.code === 11000) {
+      return resp.status(400).json({ message: "Email already exists", error: err });
+    }
+    return resp.status(500).json({ message: "User creation failed", error: err });
+  }
 }
+
 
 //avatar upload controller
 async function uploadImg(req, response) {
@@ -27,7 +30,7 @@ async function uploadImg(req, response) {
       .json({ message: "can't find user or you are not logged in." });
   }
 
-  userDetails.avatar = req.file.path.replace(/\\/g, "/");
+  userDetails.avatar = req.file.path.replace(/\\/g, "/"); //here we are replacing \ with / forward slashes as url is preferd in forward slash while windows uses \
 
   await userDetails.save();
   response.status(200).json({ Message: "avatar config is in progress" });

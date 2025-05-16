@@ -23,11 +23,16 @@ header {
   padding: 15px 20px;
   box-shadow: 0 4px 8px rgba(255, 50, 50, 0.5);
   border-bottom: 3px solid #1976d2;
-  position: relative;
+  position: sticky;
+  top: 0;
+  margin: 0;
+  height: 80px;
+  z-index: 1000;
 }
 
+
 .logo_flex img {
-  height: 100px;
+  height: 80px;
   width: 200px;
   position: relative;
   left: 50%;
@@ -39,6 +44,14 @@ header h1 {
   font-size: 26px;
   font-weight: bold;
   color: #ffffff;
+}
+.blog_creator {
+  background-color: red;
+  color: #000;
+  border-radius: 5px;
+}
+.blog_creator button {
+  background-color: #000;
 }
 
 .Profile button {
@@ -61,26 +74,23 @@ main {
   max-width: 800px;
   margin: 20px auto;
   padding: 25px;
-  background: #ffffff;
+  background: #080808;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(255, 50, 50, 0.3);
+  display: grid;
+ grid-template-columns: auto ;
+ gap: 10px;
 }
-.blog_creator {
-  background-color: red;
-  color: #000;
-  border-radius: 5px;
-}
-.blog_creator button {
-  background-color: #000;
-}
+
 .single_article {
   border-bottom: 2px solid #f44336;
   padding: 20px 0;
+  background-color: white;
 }
 
 .article_image img {
-  width: 100%;
-  max-height: 300px;
+  width: 80%;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -125,42 +135,76 @@ button:hover {
 
 /* Comments Section */
 .comment_section {
-  margin-top: 15px;
-  padding: 15px;
-  background: #c8e6c9;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 255, 0, 0.3);
+  width: 60%;
+  margin-top: 25px;
+  padding: 20px;
+  background: #007bff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .comment_section input {
-  width: calc(50% - 50px);
-  padding: 12px;
-  border: 2px solid #fe0404;
+  width: 78%;
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
   border-radius: 6px;
-  background: #f1f8e9;
-  color: #212121;
+  background: #fafafa;
+  color: #333;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.comment_section input:focus {
+  border-color: #007bff;
+  background-color: #fff;
 }
 
 .comment_section button {
-  background-color: #ed0b0b;
+  padding: 10px 18px;
+  background-color: #388e3c;
   color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.2s ease-in-out;
 }
+
+.comment_section button:hover {
+  background-color: #0056b3;
+}
+
+.comments {
+  margin-top: 25px;
+}
+
 .comments_div {
-  margin: 15px;
+  background-color: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
+
 .comments h6 {
   font-size: 15px;
-  color: rgb(11, 11, 11);
-  margin: 0;
-  padding: 0;
+  color: #212529;
+  margin: 5px 0 0 0;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .comments p {
-  font-size: 11px;
+  font-size: 12px;
   margin: 0;
-  padding: 0;
-  color: rgb(11, 11, 11);
+  color: #6c757d;
 }
+
 
 /* Profile Page */
 .profile_div {
@@ -192,8 +236,40 @@ button:hover {
 .profile_div button:hover {
   background-color: #2e7d32;
 }
-/* //sigup page css  */
-
+/* sigup page css  */
+.signup_page{
+  background-color: #d04444;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  gap: 10%;
+  margin: auto;
+}
+.signup_logo{
+ 
+  img{
+    width:150px;
+    height: auto;
+  }
+}
+.signup_page form{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  input{
+    width: 100%;
+    
+  }
+  textarea{
+    width: 100%;
+  }
+}
 /* Login Page */
 /* Login Page Styling */
 .login_page {
@@ -202,9 +278,9 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
+  height: 100%;
+  width: 60%;
+  margin: auto;
 }
 
 .logo_login img {
@@ -219,11 +295,11 @@ button:hover {
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
-  width: 350px;
+  width: 60%;
 }
 
 .login_form input {
-  width: 100%;
+  width: 70%;
   padding: 12px;
   margin-bottom: 15px;
   border: 2px solid #d32f2f;
@@ -247,7 +323,7 @@ button:hover {
   font-size: 18px;
   font-weight: bold;
   transition: background-color 0.3s;
-  width: 100%;
+  width: 50%;
 }
 
 .login_form button:hover {
@@ -335,6 +411,17 @@ button:hover {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+.tag_selector{
+   background-color: #007bff;
+   width: 30%;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
 .blog_creator_div form button:hover {
   background-color: #0056b3;
@@ -348,4 +435,160 @@ button:hover {
   background-color: white;
   color: #000;
 margin: auto;
+}
+/* responsiveness handled  */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo_flex img {
+    height: 80px;
+    width: 150px;
+    left: 0;
+    transform: none;
+  }
+
+  header h1 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+.blog_creator{
+  display: none;
+}
+  .Profile button {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  main {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .article_title {
+    font-size: 22px;
+  }
+
+  .article_description {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  .comment_section input {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .comment_section {
+    padding: 10px;
+  }
+
+  .profile_div {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .signup_page {
+    width: 90%;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .signup_page form {
+    width: 90%;
+  }
+
+  .login_page {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .login_form {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .login_form input {
+    width: 80%;
+  }
+
+  .login_form button {
+    width: 100%;
+  }
+
+  .blog_creator_div {
+    padding: 20px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 18px;
+  }
+
+  .Profile button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .article_title {
+    font-size: 20px;
+  }
+
+  .article_description {
+    font-size: 14px;
+  }
+
+  .comment_section input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .profile_div img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .signup_page form {
+    width: 100%;
+  }
+
+  .login_form {
+    padding: 20px;
+  }
+
+  .login_form input {
+    font-size: 14px;
+    width: 80%;
+  }
+
+  .login_form button {
+    font-size: 16px;
+  }
+
+  .blog_creator_div h1 {
+    font-size: 20px;
+  }
+
+  .blog_creator_div form .article_title,
+  .blog_creator_div form .article_tags,
+  .blog_creator_div form .blog_description {
+    font-size: 14px;
+  }
 }

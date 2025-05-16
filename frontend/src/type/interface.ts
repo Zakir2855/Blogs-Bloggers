@@ -6,14 +6,7 @@ export interface user {
   password: string;
   username: string;
   dob: string;
-  phoneNumber: string;
-  communication_address: {
-    address_1: string;
-    address_2: string;
-    country: "INDIA" | "US" | "AUSTRALIA";
-    phone_number_country_code: string;
-    state: string;
-  };
+  
 }
 export interface login{
   email:string;

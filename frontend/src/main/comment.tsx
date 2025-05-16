@@ -84,11 +84,11 @@ export default function Comments({ id }: CommentsProps) {
         value={comment}
         onChange={handleChange}
       />
-      <button onClick={createComment}>post&gt;</button>
+      <button onClick={createComment}>comment</button>
 
       <div className="comments">
         {comments.length > 0 ? (
-          comments.map((item) => <div className="comments_div" key={item._id}><h6>by {item.user.first_name}</h6><p>{item.comment}</p></div>)
+          comments.map((item) => <div className="comments_div" key={item._id}><p>by {item.user.first_name}</p><h6>{item.comment}</h6></div>)
         ) : (
           <div className="comments_div"><h1 style={{color:"black"}}>No Comments yet.</h1></div>
         )}

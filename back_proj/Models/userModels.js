@@ -33,12 +33,7 @@ let userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please input the user Password"],
     },
-    username: {
-      type: String,
-      required: [true, "Please input the username"],
-      unique: true,
-      minLength: 3,
-    },
+    
     role: {
       type: String,
       enum: ["ADMIN", "USER", "QA-TESTER", "CONTENT_WRITTER"],
@@ -63,33 +58,6 @@ let userSchema = new mongoose.Schema(
         ref: "Article",
       },
     ],
-    phoneNumber: {
-      required: [true, "Kindly Give the Phone Number"],
-      type: Number,
-    },
-    communication_address: {
-      address_1: {
-        type: String,
-        required: true,
-      },
-      address_2: {
-        type: String,
-        required: true,
-      },
-      country: {
-        type: String,
-        enum: ["INDIA", "US", "AUSTRALIA"],
-        default: "INDIA",
-      },
-      phone_number_country_code: {
-        type: String,
-        default: "+91",
-      },
-      state: {
-        type: String,
-        required: true,
-      },
-    },
   },
   { timestamps: true }
 );
